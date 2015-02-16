@@ -4,7 +4,7 @@ JR,BM,AB & MQ
 */
 int Y_AXIS = 1;
 int X_AXIS = 2;
-color b1, b2;
+color light,dark;
 
 boolean devMode = false;
 boolean sketchFullScreen() {
@@ -14,7 +14,6 @@ boolean sketchFullScreen() {
 
 void setup()
 {
-  
   if (devMode)
   {
     size(800, 640);
@@ -24,9 +23,12 @@ void setup()
     size(displayWidth, displayHeight);
   }
   
-  b1 = color(50,150,200);  // Light Blue
-  b2 = color(10,20,30);    // Dark Blue
-  setGradient(0, 0, width, height, b1, b2, Y_AXIS);
+  
+  
+  light = color(random(200,255),random(200,255),random(200,255));  // Light Blue
+  dark =  color(random(0,55),random(0,55),random(0,55));    // Dark Blue
+  setGradient(0, 0, width, height, light, dark, Y_AXIS);
+
 //  Background();
 }
 
