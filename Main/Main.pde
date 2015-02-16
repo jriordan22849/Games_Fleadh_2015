@@ -10,7 +10,7 @@ int Y_AXIS = 1;
 int X_AXIS = 2;
 color light,dark;
 
-boolean devMode = true;
+boolean devMode = false;
 boolean sketchFullScreen() 
 {
   return ! devMode;
@@ -30,9 +30,7 @@ void setup()
   
   
   
-  light = color(random(200,255),random(200,255),random(200,255));  // Light Blue
-  dark =  color(random(0,55),random(0,55),random(0,55));    // Dark Blue
-  setGradient(0, 0, width, height, light, dark, Y_AXIS);
+ 
   
   bg = loadImage("main_screen.jpg");
 //  Background();
@@ -52,6 +50,9 @@ void draw()
   }
   else if(main_screen == true)
   {
+     light = color(random(200,255),random(200,255),random(200,255));  // Light Blue
+     dark =  color(random(0,55),random(0,55),random(0,55));    // Dark Blue
+     setGradient(0, 0, width, height, light, dark, Y_AXIS);
   }
   else if(end_screen == true)
   {

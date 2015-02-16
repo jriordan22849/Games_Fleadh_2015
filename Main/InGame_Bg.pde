@@ -1,4 +1,4 @@
-Main_menu main = new Main_menu();
+ main = new Main_menu();
 class Main_menu
 {
   int x;
