@@ -3,57 +3,52 @@ Truck Truck1 = new Truck();
 class Truck
 {
   PVector pos;
-  float CenterX;
-  float CenterY;
+  float truckH;
+  float truckW;
+  float speed;
+
   
   Truck()
   {
-    pos = new PVector();
-    setupSpawn();
-  }
-  
-  
-  
+    pos = new PVector(500, 500);
+    truckH = 50;
+    truckW = 150;
+    speed = 10;
+    
+  }  
 
   void update()
   {
     keyPressed();
+    
   }
 
   void display()
   {    
-    truck();
-  }  
-  
-  void truck()
-  {
     
     fill(0);
-    rect(pos.x,pos.y,50,50);
+    rect(pos.x, pos.y, truckW, truckH);
     
-  }
-  
-  void setupSpawn()
-  {
-    this.CenterX= StartPosX;
-    this.CenterY= StartPosY;
-    this.pos = new PVector(CenterX,CenterY);
-  }
+  }  
   
   void keyPressed()
   {
-    if(key==CODED)
-    {
-      if(keyCode == RIGHT)
-      {
-        pos.x = pos.x + 1;
-      }
     
-      if(keyCode == LEFT)
+    if(keyPressed == true)
+    {
+      if ( (keyCode == LEFT) )
       {
-        pos.x = pos.x - 1;
+        pos.x -= speed;
       }
+      
+      if ( (keyCode == RIGHT) )
+      {
+        pos.x += speed;
+      } 
     }
-  }
+  }//end keypressed
+
   
-}
+  
+}//end class
+

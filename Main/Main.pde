@@ -5,8 +5,6 @@ JR,BM,AB & MQ
 
 // main screen image.
 PImage bg;
-float StartPosX = width/2;
-float StartPosY = height/6;
 int Y_AXIS = 1;
 int X_AXIS = 2;
 color light,dark;
@@ -92,4 +90,5 @@ void Background()
 //    rect(0,(i)*sectHeight,sectWidth,sectHeight);
 //  }
 }
-  
+
+
