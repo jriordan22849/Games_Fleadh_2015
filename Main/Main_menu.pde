@@ -26,18 +26,30 @@ class Main_menu
       
       // inner transparent box
       fill(#FFDE95);
-      rect( x + 10, y + 10, x2 - 20, y2 - 20);
+      rect( x + 10, y + 10, x2 - 20, y2 - 20, 5);
       
       // main menu options
       fill(#FFCE64);
       // first option
-      rect( x + 40, y + 40, x2 - 80 , y - 100);
+      rect( x + 40, y + 40, x2 - 80 , y - 100, 5);
+      
+      fill(#9B9B9B);
+      textSize(35);
+      text("Start Game", x + 60, y + 80);
       
       // second option
-      rect( x + 40, y + 150, x2 - 80 , y - 100);
+      fill(#FFCE64);
+      rect( x + 40, y + 150, x2 - 80 , y - 100, 5);
+      
+      fill(#9B9B9B);
+      text("Instructions", x + 50, y + 190);
       
       // third option
-      rect( x + 40, y + 260, x2 - 80 , y - 100);
+      fill(#FFCE64);
+      rect( x + 40, y + 260, x2 - 80 , y - 100, 5);
+      
+      fill(#9B9B9B);
+      text("Leaderboard", x + 45, y + 300);
 
 
 
