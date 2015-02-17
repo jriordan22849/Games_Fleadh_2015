@@ -37,7 +37,7 @@ void setup()
 }
 
 boolean colourSelect = true;
-boolean start_screen = true;
+boolean start_screen = false;
 boolean main_screen = true;
 boolean end_screen = false;
 boolean instruction_screen = false;
@@ -53,8 +53,8 @@ void draw()
   {
     if(colourSelect == true)
     {
-       light = color(random(200,255),random(200,255),random(200,255));  // Light 
-       dark =  color(random(0,55),random(0,55),random(0,55));           // Dark 
+       light = color(random(20,255),random(20,255),random(20,255));  // Light 
+       dark =  color(0);//(random(0,55),random(0,55),random(0,55));           // Dark 
        colourSelect = false;
     }
      inGame.display();
