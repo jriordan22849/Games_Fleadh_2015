@@ -1,5 +1,5 @@
 
-Truck Truck1 = new Truck();
+Truck truck = new Truck();
 class Truck
 {
   PVector pos;
@@ -26,8 +26,9 @@ class Truck
   void display()
   {    
     
-    fill(0);
-    rect(pos.x, pos.y, truckW, truckH);
+    image(karl, pos.x, pos.y);
+    //fill(0);
+    //rect(pos.x, pos.y, truckW, truckH);
     
   }  
   

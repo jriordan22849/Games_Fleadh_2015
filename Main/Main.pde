@@ -5,6 +5,7 @@ JR,BM,AB & MQ
 
 // main screen image.
 PImage bg;
+PImage karl; //karl is the truck, respect him
 int Y_AXIS = 1;
 int X_AXIS = 2;
 color light;
@@ -35,6 +36,7 @@ void setup()
     size(displayWidth, displayHeight);
   }
   
+  karl = loadImage("truck1.bmp");
   bg = loadImage("main_screen.jpg");
 }
 
@@ -70,8 +72,8 @@ void draw()
      }
      //Truck.pos.x = width/2;
      //Truck.pos.y = height/6;
-     Truck1.update();
-     Truck1.display();
+     truck.update();
+     truck.display();
   }
   else if(end_screen == true)
   {
