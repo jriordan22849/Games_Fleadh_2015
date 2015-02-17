@@ -5,6 +5,7 @@ JR,BM,AB & MQ
 
 // main screen image.
 PImage bg;
+PImage fg;
 PImage karl; //karl is the truck, respect him
 int Y_AXIS = 1;
 int X_AXIS = 2;
@@ -38,6 +39,7 @@ void setup()
   
   karl = loadImage("truck1.bmp");
   bg = loadImage("main_screen.jpg");
+  fg = loadImage("RoadSide1.png");
 }
 
 boolean colourSelect = true;

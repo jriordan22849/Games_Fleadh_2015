@@ -1,5 +1,6 @@
 class RoadSide
 {
+  
   PVector pos  ;
   float   prog ;
 
@@ -25,7 +26,7 @@ class RoadSide
     if(pos.x-prog<=-width)
     {
       pos.x = 0;
-      pos.y = 500;
+      pos.y = 300;
       prog = 0;
     }
 
@@ -39,7 +40,7 @@ class RoadSide
     stroke(255);
    
     
-    rect(pos.x-prog,pos.y,2*width,80);
+    image(fg,pos.x-prog,pos.y,1600,150);
     
     prog = prog + 1 ;
   }
