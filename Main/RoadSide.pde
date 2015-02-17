@@ -22,9 +22,10 @@ class RoadSide
   
   void update()
   {
-    if(pos.x-prog<=0)
+    if(pos.x-prog<=-width)
     {
-      pos.x = random(width,2*width/3);
+      pos.x = 0;
+      pos.y = 500;
       prog = 0;
     }
 
@@ -38,7 +39,7 @@ class RoadSide
     stroke(255);
    
     
-    rect(pos.x-prog,pos.y,50,500);
+    rect(pos.x-prog,pos.y,2*width,80);
     
     prog = prog + 1 ;
   }
