@@ -50,7 +50,16 @@ class Main_menu
       
       fill(#9B9B9B);
       text("Leaderboard", x + 45, y + 300);
-
+      
+      println("Mouse x is " + mouseX);
+      println("Mouse y is " + mouseY);
+      if( (mouseX >= 290) && (mouseX <= 510) && (mouseY >= 190) && (mouseY <= 245) )
+      {
+        fill(#9ACFFA);
+        rect( x + 40, y + 40, x2 - 80 , y - 100, 5);
+        fill(#9B9B9B);
+        text("Start Game", x + 60, y + 80);
+      }
 
 
       

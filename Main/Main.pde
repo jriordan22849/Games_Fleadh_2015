@@ -37,8 +37,8 @@ void setup()
 }
 
 boolean colourSelect = true;
-boolean start_screen = true;
-boolean main_screen = false;
+boolean start_screen = false;
+boolean main_screen = true;
 boolean end_screen = false;
 boolean instruction_screen = false;
 boolean high_scrore_screen = false;
