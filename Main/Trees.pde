@@ -22,7 +22,11 @@ class Trees
   
   void update()
   {
-    
+    if(pos.x-prog<=0)
+    {
+      pos.x = random(width,2*width/3);
+      prog = 0;
+    }
     
   }
   
