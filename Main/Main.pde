@@ -10,7 +10,7 @@ int Y_AXIS = 1;
 int X_AXIS = 2;
 color light,dark;
 
-boolean devMode = true;
+boolean devMode = false;
 boolean sketchFullScreen() 
 {
   return ! devMode;
@@ -37,7 +37,7 @@ void setup()
 }
 
 boolean colourSelect = true;
-boolean start_screen = false;
+boolean start_screen = true;
 boolean main_screen = true;
 boolean end_screen = false;
 boolean instruction_screen = false;
