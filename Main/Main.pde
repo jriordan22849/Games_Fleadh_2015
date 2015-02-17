@@ -7,9 +7,16 @@ JR,BM,AB & MQ
 PImage bg;
 int Y_AXIS = 1;
 int X_AXIS = 2;
-color light,dark;
+color light;
+color dark;
 
-boolean devMode = false;
+int TREE_COUNT;
+int ROAD_COUNT;
+
+ArrayList<RoadSide> road = new ArrayList<RoadSide>();
+ArrayList<Trees> tree = new ArrayList<Trees>();
+
+boolean devMode = true;
 boolean sketchFullScreen() 
 {
   return ! devMode;
@@ -18,7 +25,6 @@ boolean sketchFullScreen()
 
 void setup()
 {
-  
   
   if (devMode)
   {
@@ -29,12 +35,7 @@ void setup()
     size(displayWidth, displayHeight);
   }
   
-
-  
- 
-  
   bg = loadImage("main_screen.jpg");
-//  Background();
 }
 
 boolean colourSelect = true;
@@ -54,14 +55,23 @@ void draw()
   {
     if(colourSelect == true)
     {
+      intialiseBG();
        light = color(random(150,255),random(150,255),random(10,255));  // Light 
        dark =  color(0);//(random(0,55),random(0,55),random(0,55));           // Dark 
        colourSelect = false;
     }
      inGame.display();
+     for(RoadSide RoadSide:road)
+     {
+       RoadSide.display();
+       RoadSide.update();
+       println(RoadSide.pos.x);
+       println(RoadSide.prog);
+     }
+     //Truck.pos.x = width/2;
+     //Truck.pos.y = height/6;
      Truck1.update();
      Truck1.display();
-     
   }
   else if(end_screen == true)
   {
@@ -76,19 +86,21 @@ void draw()
   
 }
 
-
-void Background()
-{
-//  int numGrad = 10;
-//  float sectHeight = height/numGrad;
-//  float sectWidth = width;
-//  
-//  
-//  for(int i = 0; i< numGrad; i ++)
-//  {
-//    fill(150,200,250);
-//    rect(0,(i)*sectHeight,sectWidth,sectHeight);
-//  }
+void intialiseBG()
+{  
+  
+    TREE_COUNT = 4;
+    ROAD_COUNT = 4;
+    
+    for(int i = 0; i < TREE_COUNT; i++) 
+    {
+      tree.add(new Trees());
+    } 
+    
+    for(int i = 0; i < ROAD_COUNT; i++) 
+    {
+      road.add(new RoadSide());
+    } 
+ 
 }
-
 
