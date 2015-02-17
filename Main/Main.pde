@@ -5,7 +5,8 @@ JR,BM,AB & MQ
 
 // main screen image.
 PImage bg;
-
+float StartPosX = width/2;
+float StartPosY = height/6;
 int Y_AXIS = 1;
 int X_AXIS = 2;
 color light,dark;
@@ -19,6 +20,8 @@ boolean sketchFullScreen()
 
 void setup()
 {
+  
+  
   if (devMode)
   {
     size(800, 640);
@@ -28,7 +31,7 @@ void setup()
     size(displayWidth, displayHeight);
   }
   
-  
+
   
  
   
@@ -53,11 +56,14 @@ void draw()
   {
     if(colourSelect == true)
     {
-       light = color(random(20,255),random(20,255),random(20,255));  // Light 
+       light = color(random(150,255),random(150,255),random(10,255));  // Light 
        dark =  color(0);//(random(0,55),random(0,55),random(0,55));           // Dark 
        colourSelect = false;
     }
      inGame.display();
+     Truck1.update();
+     Truck1.display();
+     
   }
   else if(end_screen == true)
   {
