@@ -12,6 +12,7 @@ class Main_menu
 
     if(start_screen == true)
     {   
+      // test
       background(bg); 
       x = 250;
       y = 150;
