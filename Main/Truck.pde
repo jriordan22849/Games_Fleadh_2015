@@ -26,7 +26,7 @@ class Truck
   void display()
   {    
     
-    image(karl, pos.x, pos.y);
+    image(karl, pos.x, pos.y, 100, 75);
     //fill(0);
     //rect(pos.x, pos.y, truckW, truckH);
     
