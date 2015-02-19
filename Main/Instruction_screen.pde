@@ -35,6 +35,6 @@ class Instruction_screen
       strokeWeight(width/200);
       rect(x, y, x2, y2, width/160);
       
-      image(i_monkey, x2 , y2 , 50 , 50);
+
   } 
 }

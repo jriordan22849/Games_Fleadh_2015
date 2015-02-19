@@ -7,6 +7,7 @@ JR,BM,AB & MQ
 PImage bg;
 PImage fg;
 PImage karl; //karl is the truck, respect him
+PImage i_banana;
 int Y_AXIS = 1;
 int X_AXIS = 2;
 color light;
@@ -15,19 +16,29 @@ color dark;
 int TREE_COUNT;
 int ROAD_COUNT;
 
+boolean colourSelect = true;
+boolean start_screen = true;
+boolean main_screen = false;
+boolean end_screen = false;
+boolean instruction_screen = false;
+boolean high_scrore_screen = false;
+
 ArrayList<RoadSide> road = new ArrayList<RoadSide>();
 ArrayList<Trees> tree = new ArrayList<Trees>();
+ArrayList<Power_ups> banana_pu = new ArrayList<Power_ups>();
+ArrayList<Fuel> fuel_pu = new ArrayList<Fuel>();
 
-boolean devMode = true;
+boolean devMode = false;
 boolean sketchFullScreen() 
 {
   return ! devMode;
 }
 
+// counter
+int counter = frameCount % 300;
 
 void setup()
 {
-  
   if (devMode)
   {
     size(800, 640);
@@ -40,14 +51,10 @@ void setup()
   karl = loadImage("truck1.bmp");
   bg = loadImage("main_screen.jpg");
   fg = loadImage("RoadSide1.png");
+  // i_banana = loadI
+  
+  create_banana();
 }
-
-boolean colourSelect = true;
-boolean start_screen = false;
-boolean main_screen = true;
-boolean end_screen = false;
-boolean instruction_screen = false;
-boolean high_scrore_screen = false;
 
 void draw()
 {
@@ -76,20 +83,80 @@ void draw()
      //Truck.pos.y = height/6;
      truck.update();
      truck.display();
+     
+     for(int i = 0; i < banana_pu.size(); i ++)
+     {
+       if( counter == 0)
+       {
+         banana_pu.get(i).display();
+       }
+     }
+     
+     if(banana_pu.isEmpty() )
+     {
+       create_banana();
+     }
+     
+     for(int i = 0; i < fuel_pu.size(); i ++)
+     {
+       
+       fuel_pu.get(i).fuel_display();
+     }
+     
+     if(fuel_pu.isEmpty())
+     {
+       create_fuel_power_up();
+     }
+     
+     
   }
-  else if(end_screen == true)
+  if(end_screen == true)
   {
+    endscreen.display();
   }
-  else if(instruction_screen == true)
+  if(instruction_screen == true)
   {
+    instruction.display();
   }
-  else if(high_scrore_screen == true)
+  if(high_scrore_screen == true)
   {
+    Hscore.display();
   }
   
   
 }
 
+
+void create_banana()
+{
+  float x;
+  float y;
+  float h = 0;
+  float w = 0;
+  int num_banana = 2;
+  
+  for(int i = 0; i < num_banana; i ++)
+  {
+    x = random(0, width - 50);
+    y = 150;
+    banana_pu.add(new Power_ups(x, y, h, w));
+  }   
+} // end create banana function 
+
+void create_fuel_power_up()
+{
+  float fx, fy;
+  float fh = 0;
+  float fw = 0;
+  int num_fuel = 1;
+  
+  for(int i = 0; i < num_fuel; i ++)
+  {
+    fx = random(0, width - 50);
+    fy = 150;
+    fuel_pu.add(new Fuel(fx, fy, fh, fw) );
+  }  
+}
 void intialiseBG()
 {  
   

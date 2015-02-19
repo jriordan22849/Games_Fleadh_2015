@@ -59,7 +59,8 @@ class Main_menu
       // first box
       if( (mouseX >= width/2.7586206896) && (mouseX <= width/1.5686274509) && (mouseY >= height/3.3684210526) && (mouseY <= height/2.6122448979) )
       {
-        fill(#9ACFFA);
+        stroke(#FF0000);
+        fill(#FFCE64);
         rect( x + width/20, y + height/16, x2 - width/10 , y - height/6.4, width/160);
         fill(#9B9B9B);
         text("Start Game", x + width/13.3333, y + height/8);
@@ -68,7 +69,8 @@ class Main_menu
       // second box
       if( (mouseX >= width/2.7586206896) && (mouseX <= width/1.5686274509) && (mouseY >= height / 2.1333333333) && (mouseY <= height / 1.8285714285) )
       {
-        fill(#9ACFFA);
+        stroke(#FF0000);
+        fill(#FFCE64);
         rect( x + width/20, y + height/4.26666, x2 - width/10 , y - height/6.4, width/160);
         fill(#9B9B9B);
         text("Instructions", x + width/16, y + height/3.3684210526);
@@ -77,7 +79,8 @@ class Main_menu
       // third box
       if( (mouseX >= width/2.7586206896) && (mouseX <= width/1.5686274509) && (mouseY >= height / 1.5496368039 ) && (mouseY <= height / 1.3617021277) )
       {
-        fill(#9ACFFA);
+        stroke(#FF0000);
+        fill(#FFCE64);
         rect( x + width/20, y + height/2.4615384615, x2 - width/10 , y - height/6.4, width/160);
       
         fill(#9B9B9B);

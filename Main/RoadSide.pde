@@ -23,14 +23,9 @@ class RoadSide
   
   void update()
   {
-    if(pos.x-prog<=-width)
-    {
       pos.x = 0;
       pos.y = 475;
-      prog = 0;
-    }
-
-    
+      prog = pos.y + prog; 
   }
   
   void display()
@@ -42,13 +37,13 @@ class RoadSide
     
     image(fg,pos.x-prog,pos.y,width*2,75);
     
-    prog = prog + 5 ;
+    prog = prog + 0.001 ;
   }
   
   void setupSpawn()
   {
     
-    this.pos = new PVector(random(0, width), random(0, 5*height/6));
+    //this.pos = new PVector(random(0, width), random(0, 5*height/6));
 
   }
 }
