@@ -13,6 +13,13 @@ int X_AXIS = 2;
 color light;
 color dark;
 
+// for the animation of the truck
+int currentFrame;
+int numFrames = 2;
+PImage[] Lkarl = new PImage[numFrames]; // 2 is number of images
+PImage[] Rkarl = new PImage[numFrames];
+
+
 int TREE_COUNT;
 int ROAD_COUNT;
 
@@ -24,7 +31,7 @@ boolean instruction_screen = false;
 boolean high_scrore_screen = false;
 
 ArrayList<RoadSide> road = new ArrayList<RoadSide>();
-ArrayList<Trees> tree = new ArrayList<Trees>();
+//ArrayList<Trees> tree = new ArrayList<Trees>();
 ArrayList<Power_ups> banana_pu = new ArrayList<Power_ups>();
 ArrayList<Fuel> fuel_pu = new ArrayList<Fuel>();
 
@@ -51,6 +58,11 @@ void setup()
   karl = loadImage("truck1.bmp");
   bg = loadImage("main_screen.jpg");
   fg = loadImage("RoadSide1.png");
+  Lkarl[0] = loadImage("truck1left.bmp");
+  Lkarl[1] = loadImage("truck2left.bmp");
+  Rkarl[0] = loadImage("truck1.bmp");
+  Rkarl[1] = loadImage("truck2.bmp");
+
   // i_banana = loadI
   
   create_banana();
@@ -163,9 +175,9 @@ void intialiseBG()
     TREE_COUNT = 4;
     ROAD_COUNT = 4;
     
-    for(int i = 0; i < TREE_COUNT; i++) 
+    //for(int i = 0; i < TREE_COUNT; i++) 
     {
-      tree.add(new Trees());
+      //tree.add(new Trees());
     } 
     
     for(int i = 0; i < ROAD_COUNT; i++) 
@@ -174,4 +186,3 @@ void intialiseBG()
     } 
  
 }
-

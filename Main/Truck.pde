@@ -1,4 +1,3 @@
-
 Truck truck = new Truck();
 class Truck
 {
@@ -11,7 +10,7 @@ class Truck
   Truck()
   {
     pos = new PVector(500, 500);
-    truckH = 50;
+    truckH = 100;
     truckW = 150;
     speed = 10;
     
@@ -25,26 +24,66 @@ class Truck
 
   void display()
   {    
+    if(keyPressed == true)
+    {
+      // this makes the truck animation- turns the wheels- dont mind it, it just works
+      if ( (keyCode == LEFT) )
+      {
+        currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
+        int offset = 0; // which frame
+      
+        for (int x = -100; x < width; x += Lkarl[1].width) 
+        { 
+          image(Lkarl[(currentFrame+offset) % numFrames], pos.x, pos.y, truckW,truckH);
+        }
+      }
+      
+      if ( (keyCode == RIGHT) )
+      {
+         currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
+        int offset = 0; // which frame
+      
+        for (int x = -100; x < width; x += Rkarl[1].width) 
+        { 
+          image(Rkarl[(currentFrame+offset) % numFrames], pos.x, pos.y, truckW,truckH);  
+        }
+      } 
+    } // end keyPressed()
     
-    image(karl, pos.x, pos.y, 175, 125);
-    //fill(0);
-    //rect(pos.x, pos.y, truckW, truckH);
-    
-  }  
+  } // end display  
   
   void keyPressed()
   {
     
     if(keyPressed == true)
     {
-      if ( (keyCode == LEFT) )
-      {
-        pos.x -= speed;
-      }
-      
       if ( (keyCode == RIGHT) )
       {
-        pos.x += speed;
+        if( pos.x > width)
+        {
+          pos.x -= 50;
+        }
+        else
+        {
+          
+          pos.x += speed;
+        }
+        
+
+      }
+      
+      if ( (keyCode == LEFT) )
+      {
+        if( pos.x < 0)
+        {
+          pos.x += 50;
+        }
+        else
+        {
+          pos.x -= speed;
+        }
+      
+
       } 
     }
   }//end keypressed
@@ -52,4 +91,3 @@ class Truck
   
   
 }//end class
-
