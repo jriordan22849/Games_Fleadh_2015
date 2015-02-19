@@ -26,7 +26,7 @@ class RoadSide
     if(pos.x-prog<=-width)
     {
       pos.x = 0;
-      pos.y = 300;
+      pos.y = 475;
       prog = 0;
     }
 
@@ -40,9 +40,9 @@ class RoadSide
     stroke(255);
    
     
-    image(fg,pos.x-prog,pos.y,1600,150);
+    image(fg,pos.x-prog,pos.y,width*2,75);
     
-    prog = prog + 1 ;
+    prog = prog + 5 ;
   }
   
   void setupSpawn()
