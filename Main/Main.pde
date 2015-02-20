@@ -14,10 +14,10 @@ color light;
 color dark;
 
 // for the animation of the truck
-int currentFrame;
-int numFrames = 2;
-PImage[] Lkarl = new PImage[numFrames]; // 2 is number of images
-PImage[] Rkarl = new PImage[numFrames];
+//int currentFrame;
+//int numFrames = 2;
+//PImage[] Lkarl = new PImage[numFrames]; // 2 is number of images
+//PImage[] Rkarl = new PImage[numFrames];
 
 
 int TREE_COUNT;
@@ -35,7 +35,7 @@ ArrayList<RoadSide> road = new ArrayList<RoadSide>();
 ArrayList<Power_ups> banana_pu = new ArrayList<Power_ups>();
 ArrayList<Fuel> fuel_pu = new ArrayList<Fuel>();
 
-boolean devMode = false;
+boolean devMode = true;
 boolean sketchFullScreen() 
 {
   return ! devMode;
@@ -58,10 +58,10 @@ void setup()
   karl = loadImage("truck1.bmp");
   bg = loadImage("main_screen.jpg");
   fg = loadImage("RoadSide1.png");
-  Lkarl[0] = loadImage("truck1left.bmp");
-  Lkarl[1] = loadImage("truck2left.bmp");
-  Rkarl[0] = loadImage("truck1.bmp");
-  Rkarl[1] = loadImage("truck2.bmp");
+  //Lkarl[0] = loadImage("truck1left.bmp");
+  //Lkarl[1] = loadImage("truck2left.bmp");
+  //Rkarl[0] = loadImage("truck1.bmp");
+  //Rkarl[1] = loadImage("truck2.bmp");
 
   // i_banana = loadI
   
@@ -76,6 +76,8 @@ void draw()
   }
   else if(main_screen == true)
   {
+    
+    
     if(colourSelect == true)
     {
       intialiseBG();
@@ -83,16 +85,20 @@ void draw()
        dark =  color(0);//(random(0,55),random(0,55),random(0,55));           // Dark 
        colourSelect = false;
     }
+     
      inGame.display();
+     
      for(RoadSide RoadSide:road)
      {
+       RoadSide.pos.y = 4.5*height/6;
        RoadSide.display();
        RoadSide.update();
        println(RoadSide.pos.x);
        println(RoadSide.prog);
      }
-     //Truck.pos.x = width/2;
-     //Truck.pos.y = height/6;
+     
+     //truck.pos.x = width/2;
+     //truck.pos.y = height/6;
      truck.update();
      truck.display();
      
@@ -119,7 +125,6 @@ void draw()
      {
        create_fuel_power_up();
      }
-     
      
   }
   if(end_screen == true)

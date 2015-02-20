@@ -23,9 +23,13 @@ class RoadSide
   
   void update()
   {
+    if(pos.x-prog<=-width)
+    {
       pos.x = 0;
       pos.y = 475;
-      prog = pos.y + prog; 
+      prog = 0;
+    }
+      
   }
   
   void display()
@@ -33,17 +37,16 @@ class RoadSide
     
     fill(0);
     stroke(255);
-   
+
+    image(fg,pos.x-prog,pos.y,width*2,height/7);
     
-    image(fg,pos.x-prog,pos.y,width*2,75);
-    
-    prog = prog + 0.001 ;
+    prog = prog + width/160 ;
   }
   
   void setupSpawn()
   {
     
-    //this.pos = new PVector(random(0, width), random(0, 5*height/6));
+    this.pos = new PVector(random(0, width), random(0, 5*height/6));
 
   }
 }
