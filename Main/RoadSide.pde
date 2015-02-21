@@ -38,9 +38,9 @@ class RoadSide
     fill(0);
     stroke(255);
 
-    image(fg,pos.x-prog,pos.y,width*2,height/7);
+//image(fg,pos.x-prog,pos.y,width*2,height/7);
     
-    prog = prog + width/160 ;
+    prog = prog + 3 ;
   }
   
   void setupSpawn()

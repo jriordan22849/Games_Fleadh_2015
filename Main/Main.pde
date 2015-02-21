@@ -55,9 +55,9 @@ void setup()
     size(displayWidth, displayHeight);
   }
   
-  karl = loadImage("truck1.bmp");
-  bg = loadImage("main_screen.jpg");
-  fg = loadImage("RoadSide1.png");
+  //karl = loadImage("truck1.bmp");
+  //bg = loadImage("main_screen.jpg");
+  //fg = loadImage("RoadSide1.png");
   //Lkarl[0] = loadImage("truck1left.bmp");
   //Lkarl[1] = loadImage("truck2left.bmp");
   //Rkarl[0] = loadImage("truck1.bmp");
@@ -150,12 +150,12 @@ void create_banana()
   float y;
   float h = 0;
   float w = 0;
-  int num_banana = 2;
+  int num_banana = 8;
   
   for(int i = 0; i < num_banana; i ++)
   {
-    x = random(0, width - 50);
-    y = 150;
+    x = random(width/5, 2*width - 50);
+    y = random(-height/2 , 0);
     banana_pu.add(new Power_ups(x, y, h, w));
   }   
 } // end create banana function 

@@ -13,7 +13,7 @@ class Fuel
    void fuel_display()
    {
       fill(#FF0015);
-      rect(fx, fy, fh, fw);
+      //rect(fx, fy, fh, fw);
       fh ++;
       fw ++;
       
