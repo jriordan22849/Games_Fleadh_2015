@@ -17,7 +17,7 @@ class Power_ups
      fill(#FFE600);
 //     rect(x, y, h, w);
 
-    h = h+6;
+    h = h+2;
     w = w+3;
     strokeWeight(1);
     beginShape();

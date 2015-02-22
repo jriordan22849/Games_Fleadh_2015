@@ -43,6 +43,7 @@ boolean sketchFullScreen()
 
 // counter
 int counter = frameCount % 300;
+int score = 0;
 
 void setup()
 {
@@ -88,6 +89,10 @@ void draw()
      
      inGame.display();
      
+     textSize(30);
+     fill(#FF0303);
+     text("Score: " + score, 10, 50);
+     
      for(RoadSide RoadSide:road)
      {
        RoadSide.pos.y = 4.5*height/6;
@@ -96,11 +101,6 @@ void draw()
        println(RoadSide.pos.x);
        println(RoadSide.prog);
      }
-     
-     //truck.pos.x = width/2;
-     //truck.pos.y = height/6;
-     truck.update();
-     truck.display();
      
      for(int i = 0; i < banana_pu.size(); i ++)
      {
@@ -125,6 +125,11 @@ void draw()
      {
        create_fuel_power_up();
      }
+     
+     truck.update();
+     truck.display();
+     fuel.display_level();
+     fuel.line_for_fuel_level();
      
   }
   if(end_screen == true)
