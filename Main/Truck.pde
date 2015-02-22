@@ -6,14 +6,21 @@ class Truck
   float truckW;
   float speed;
   float tSize; //width of trampoline/truck roof
+  
+  int fuel_tank = 1;
+ 
+  
+  boolean left_truck = false;
+  boolean right_truck = true;
+
 
   
   Truck()
   {
-    pos = new PVector(500, 500);
+    pos = new PVector(100, 580);
     truckH = 100;
     truckW = 150;
-    speed = 10;
+    speed = 5;
     tSize = 75;
     
   }  
@@ -25,10 +32,9 @@ class Truck
   }
 
   void display()
-  {    
-//    if(keyPressed == true)
-//    {
-      
+  { 
+    if(right_truck == true)
+    {
       noFill();
       fill(#48B741);
       rect(pos.x     , pos.y -40    ,tSize ,40,5);
@@ -43,37 +49,27 @@ class Truck
       fill(0);
       ellipse(pos.x+25 ,pos.y+40, 30,30);
       ellipse(pos.x+120,pos.y+40, 30,30);
+    }
+    if(left_truck == true)
+    {
+      noFill();
+      fill(#48B741);
+      rect(pos.x     , pos.y - 40    ,75 ,40,5);
+      fill(#48B741);
+      rect(pos.x     , pos.y        ,75 ,40,5);
+      noFill();
+      rect(pos.x - 35  , pos.y -40    ,35 ,40,5);
+      fill(#48B741);
+      rect(pos.x - 35  , pos.y        ,35 ,40,5);
+      fill(#48B741);
+      rect(pos.x - 75 , pos.y        ,40 ,40,5);
+      fill(0);
+      ellipse(pos.x - 45 ,pos.y + 40, 30,30);
+      ellipse(pos.x + 50,pos.y + 40, 30,30); 
+    }
       
-      
-      
-      //image(karl, pos.x, pos.y, truckW,truckH);
-// this makes the truck animation- turns the wheels- dont mind it, it just works -- okay great.....
-      
-//      if ( (keyCode == LEFT) )
-//      {
-//        currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
-//        int offset = 0; // which frame
-//      
-//        for (int x = -100; x < width; x += Lkarl[1].width) 
-//        { 
-//          image(Lkarl[(currentFrame+offset) % numFrames], pos.x, pos.y, truckW,truckH);
-//        }
-//      }
-//      
-//      if ( (keyCode == RIGHT) )
-//      {
-//         currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
-//        int offset = 0; // which frame
-//      
-//        for (int x = -100; x < width; x += Rkarl[1].width) 
-//        { 
-//          image(Rkarl[(currentFrame+offset) % numFrames], pos.x, pos.y, truckW,truckH);  
-//        }
-//      } 
-//    } // end keyPressed()
-    
-  } // end display  
-  
+  }
+
   void keyPressed()
   {
     
@@ -85,9 +81,14 @@ class Truck
         {
           pos.x = pos.x;
         }
+        if(fuel_tank == 0)
+        {
+          pos.x = pos.x;
+        }
         else
         {
-          
+          left_truck = false;
+          right_truck = true;
           pos.x += speed;
         }
         
@@ -96,12 +97,18 @@ class Truck
       
       if ( (keyCode == LEFT) )
       {
-        if( pos.x < 0)
+        if( pos.x - 76 < 0)
+        {
+          pos.x = pos.x;
+        }
+        if(fuel_tank == 0)
         {
           pos.x = pos.x;
         }
         else
         {
+          right_truck = false;
+          left_truck = true;
           pos.x -= speed;
         }
       
