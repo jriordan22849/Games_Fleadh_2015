@@ -16,10 +16,10 @@ class Instruction_screen
   {  
       background(#30A521);
       
-      back_x = -5;
-      back_y = height / 12.8;
+      back_x  = width / 20;
+      back_y  = height / 1.1428571428;
       back_x1 = width / 8;
-      back_y1 = height / 11.63636363636364;
+      back_y1 = height / 16;
       x = width/3.2;
       y = height/4.2666;
       x2 = x + width/16;
@@ -36,11 +36,12 @@ class Instruction_screen
       {
         textSize(65);
       }
+      textAlign(CENTER);
       text("INSTRUCTIONS", width / 3.2, width / 12.8);
       
       fill(255);
       stroke(255);
-      rect( back_x, back_y, back_x1, back_y1,  width/160);
+      rect( back_x,back_y,back_x1,back_y1 , width/160);
       
       println(mouseX, mouseY, width, height);
       
@@ -51,12 +52,11 @@ class Instruction_screen
       strokeWeight(width/200);
       rect(x, y, x2, y2, width/160);
       
-      if( (mouseX >= 0 ) && (mouseY >= 50 ) && (mouseX <= width / 8) && (mouseY <= 55) )
+      if( (mouseX >= back_x ) && (mouseY >= back_y ) && (mouseX <= width/5.7142857142) && (mouseY <= height/1.066666666) )  // 140 & 600
       {
         fill(0);
         stroke(0);
         rect( back_x, back_y, back_x1, back_y1,  width/160);
-        
       }
       
  
