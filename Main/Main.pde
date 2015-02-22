@@ -7,6 +7,7 @@ JR,BM,AB & MQ
 PImage bg;
 PImage fg;
 PImage karl; //karl is the truck, respect him
+PImage clarence;//clarence is the monkey, respect him
 PImage i_banana;
 int Y_AXIS = 1;
 int X_AXIS = 2;
@@ -62,7 +63,7 @@ void setup()
   //Lkarl[1] = loadImage("truck2left.bmp");
   //Rkarl[0] = loadImage("truck1.bmp");
   //Rkarl[1] = loadImage("truck2.bmp");
-
+  clarence = loadImage("monkey.png");
   // i_banana = loadI
   
   create_banana();
@@ -101,6 +102,8 @@ void draw()
      //truck.pos.y = height/6;
      truck.update();
      truck.display();
+     monkey.display();
+     monkey.update();
      
      for(int i = 0; i < banana_pu.size(); i ++)
      {
