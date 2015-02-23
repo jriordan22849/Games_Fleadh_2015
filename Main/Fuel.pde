@@ -89,7 +89,7 @@ class Fuel extends Truck
        rect(750, 50, 10, 100);
        bar_speed = 146 - level_y;
        fuel_tank = 0;
-       truck.speed = 0;
+   //    truck.speed = 0;
      }
      
    }

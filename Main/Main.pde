@@ -59,7 +59,7 @@ void setup()
   
   //karl = loadImage("truck1.bmp");
   //bg = loadImage("main_screen.jpg");
-  //fg = loadImage("RoadSide1.png");
+  fg = loadImage("RoadSide1.png");
   //Lkarl[0] = loadImage("truck1left.bmp");
   //Lkarl[1] = loadImage("truck2left.bmp");
   //Rkarl[0] = loadImage("truck1.bmp");
@@ -108,8 +108,8 @@ void draw()
      //truck.pos.y = height/6;
      truck.update();
      truck.display();
-     monkey.display();
-     monkey.update();
+    // monkey.display();
+     //monkey.update();
 
      for(int i = 0; i < banana_pu.size(); i ++)
      {
