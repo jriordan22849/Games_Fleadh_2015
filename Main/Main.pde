@@ -30,6 +30,7 @@ ArrayList<RoadSide> road = new ArrayList<RoadSide>();
 ArrayList<Power_ups> banana_pu = new ArrayList<Power_ups>();
 ArrayList<Fuel> fuel_pu = new ArrayList<Fuel>();
 ArrayList<Stones> stones = new ArrayList<Stones>();
+ArrayList<Tree> tree = new ArrayList<Tree>();
 
 boolean devMode = true;
 boolean sketchFullScreen() 
@@ -58,6 +59,8 @@ void setup()
   
   create_banana();
   create_stones();
+  create_tree();
+     
 }
 
 void draw()
@@ -79,10 +82,7 @@ void draw()
     }
      
      inGame.display();
-     
-     textSize(30);
-     fill(#FF0303);
-     text("Score: " + score, 10, 50);
+     create_road();
      
      for(RoadSide RoadSide:road)
      {
@@ -93,13 +93,18 @@ void draw()
        println(RoadSide.prog);
      }
      
-     create_road();
-     
      for(int i = 0; i < stones.size(); i ++)
      {
        stones.get(i).display();
        stones.get(i).update();
        stones.get(i).check_stone();
+     }
+         
+     for(int i = 0; i < tree.size(); i ++)
+     {
+       tree.get(i).draw_tree();
+       tree.get(i).update();
+       tree.get(i).check_tree();
      }
      
      truck.update();
@@ -121,7 +126,6 @@ void draw()
      
      for(int i = 0; i < fuel_pu.size(); i ++)
      {
-       
        fuel_pu.get(i).fuel_display();
      }
      
@@ -129,15 +133,16 @@ void draw()
      {
        create_fuel_power_up();
      }
-     
-
 
      truck.update();
      truck.display();
      fuel.display_level();
-     fuel.line_for_fuel_level();
-
-     //tree.draw_tree();
+     fuel.line_for_fuel_level();   
+    
+      // display score
+     textSize(30);
+     fill(#FF0303);
+     text("Score: " + score, 10, 50);
      
   }
   if(end_screen == true)
@@ -152,8 +157,22 @@ void draw()
   {
     Hscore.display();
   }
-  
-  
+}
+
+void create_tree()
+{
+  float x;
+  float y;
+  float tree_height;
+  int num_tree = 10;
+ 
+  for(int i = 0; i < num_tree; i ++)
+  {
+     x = random( 0, width - 50);
+     y = 550;
+     tree_height = random(200, height - 100);
+     tree.add(new Tree(x, y, tree_height));
+  } 
 }
 
 void create_road()
@@ -224,3 +243,5 @@ void intialiseBG()
       road.add(new RoadSide());
     } 
 }
+
+
