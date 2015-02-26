@@ -52,6 +52,7 @@ class Fuel extends Truck
       fill(#FF0303);
       text("FUEL", 660, 50 + bar_speed);
       
+      stroke(#FF0303);
       line(720, level_y + bar_speed, 745, level_y + bar_speed);
       strokeWeight(1);
       
@@ -89,7 +90,7 @@ class Fuel extends Truck
        rect(750, 50, 10, 100);
        bar_speed = 146 - level_y;
        fuel_tank = 0;
-   //    truck.speed = 0;
+       truck.speed = 0;
      }
      
    }

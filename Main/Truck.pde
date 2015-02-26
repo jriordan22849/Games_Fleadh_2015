@@ -40,7 +40,7 @@ class Truck
       rect(pos.x     , pos.y -40    ,tSize ,40,5);
       fill(#48B741);
       rect(pos.x     , pos.y        ,tSize ,40,5);
-      noFill();
+      fill(0);
       rect(pos.x+75  , pos.y -40    ,35 ,40,5);
       fill(#48B741);
       rect(pos.x+75  , pos.y        ,35 ,40,5);
@@ -57,7 +57,7 @@ class Truck
       rect(pos.x     , pos.y - 40    ,75 ,40,5);
       fill(#48B741);
       rect(pos.x     , pos.y        ,75 ,40,5);
-      noFill();
+      fill(0);
       rect(pos.x - 35  , pos.y -40    ,35 ,40,5);
       fill(#48B741);
       rect(pos.x - 35  , pos.y        ,35 ,40,5);

@@ -14,19 +14,13 @@ int X_AXIS = 2;
 color light;
 color dark;
 
-// for the animation of the truck
-//int currentFrame;
-//int numFrames = 2;
-//PImage[] Lkarl = new PImage[numFrames]; // 2 is number of images
-//PImage[] Rkarl = new PImage[numFrames];
-
 
 int TREE_COUNT;
 int ROAD_COUNT;
 
 boolean colourSelect = true;
-boolean start_screen = true;
-boolean main_screen = false;
+boolean start_screen = false;
+boolean main_screen = true;
 boolean end_screen = false;
 boolean instruction_screen = false;
 boolean high_scrore_screen = false;
@@ -35,6 +29,7 @@ ArrayList<RoadSide> road = new ArrayList<RoadSide>();
 //ArrayList<Trees> tree = new ArrayList<Trees>();
 ArrayList<Power_ups> banana_pu = new ArrayList<Power_ups>();
 ArrayList<Fuel> fuel_pu = new ArrayList<Fuel>();
+ArrayList<Stones> stones = new ArrayList<Stones>();
 
 boolean devMode = true;
 boolean sketchFullScreen() 
@@ -57,17 +52,12 @@ void setup()
     size(displayWidth, displayHeight);
   }
   
-  //karl = loadImage("truck1.bmp");
-  //bg = loadImage("main_screen.jpg");
   fg = loadImage("RoadSide1.png");
-  //Lkarl[0] = loadImage("truck1left.bmp");
-  //Lkarl[1] = loadImage("truck2left.bmp");
-  //Rkarl[0] = loadImage("truck1.bmp");
-  //Rkarl[1] = loadImage("truck2.bmp");
   clarence = loadImage("monkey.png");
-  // i_banana = loadI
+
   
   create_banana();
+  create_stones();
 }
 
 void draw()
@@ -103,13 +93,17 @@ void draw()
        println(RoadSide.prog);
      }
      
-
-     //truck.pos.x = width/2;
-     //truck.pos.y = height/6;
+     create_road();
+     
+     for(int i = 0; i < stones.size(); i ++)
+     {
+       stones.get(i).display();
+       stones.get(i).update();
+       stones.get(i).check_stone();
+     }
+     
      truck.update();
      truck.display();
-    // monkey.display();
-     //monkey.update();
 
      for(int i = 0; i < banana_pu.size(); i ++)
      {
@@ -118,6 +112,7 @@ void draw()
          banana_pu.get(i).display();
        }
      }
+          
      
      if(banana_pu.isEmpty() )
      {
@@ -135,10 +130,14 @@ void draw()
        create_fuel_power_up();
      }
      
+
+
      truck.update();
      truck.display();
      fuel.display_level();
      fuel.line_for_fuel_level();
+
+     //tree.draw_tree();
      
   }
   if(end_screen == true)
@@ -157,6 +156,33 @@ void draw()
   
 }
 
+void create_road()
+{
+  float x = 0;
+  float y = height / 1.16363636363636;
+  fill(#FCA014);
+  stroke(#FCA014);
+  rect(x, y, width, height - y);
+}
+
+void create_stones()
+{
+  float RrandomX;
+  float RrandomY;
+  float var = height / 1.16363636363636;
+  float Rw;
+  float Rh;
+  int num_stones = 1000;
+  
+  for(int i = 0; i < num_stones; i ++)
+  {
+    RrandomX =random(0, 800);
+    RrandomY = random( var , height);
+    Rw = random(2,7);
+    Rh =  random(2,7);
+    stones.add(new Stones(RrandomX, RrandomY, Rw, Rh));
+  }
+}
 
 void create_banana()
 {
@@ -190,18 +216,11 @@ void create_fuel_power_up()
 }
 void intialiseBG()
 {  
-  
     TREE_COUNT = 4;
     ROAD_COUNT = 4;
-    
-    //for(int i = 0; i < TREE_COUNT; i++) 
-    {
-      //tree.add(new Trees());
-    } 
     
     for(int i = 0; i < ROAD_COUNT; i++) 
     {
       road.add(new RoadSide());
     } 
- 
 }

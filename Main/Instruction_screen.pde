@@ -58,10 +58,5 @@ class Instruction_screen
         stroke(0);
         rect( back_x, back_y, back_x1, back_y1,  width/160);
       }
-      
- 
-      
-    
-
   } 
 }
