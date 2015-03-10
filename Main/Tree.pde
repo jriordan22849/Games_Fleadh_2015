@@ -12,7 +12,6 @@ class Tree
   float l_y;
   float l_w;
   
-  int speed = 5;
   /*
   Tree(float l_x, float l_y, float l_w)
   {
@@ -46,7 +45,7 @@ class Tree
   
   void update()
   {
-    keyPressed(); 
+    x -= speed;
   }
   
   void check_tree()
@@ -54,47 +53,16 @@ class Tree
     for(int i = 0; i < tree.size(); i ++)
     {
       Tree t1 = tree.get(i);
-      if(t1.x < -100)
+      if(t1.x < -200)
       {
         tree.remove(i);
-        float x = 799;
+        float x = width + 100;
         float y = 550;
         float tree_height = height - 150;
         tree.add(new Tree(x, y,tree_height ));
-      }
-      if(t1.x > width)
-      {
-        tree.remove(i);
-        float x = 1;
-        float y = 550;
-        float tree_height = height - 150;
-        tree.add(new Tree(x, y,tree_height ));
-
       }
     }
        
   }
-  
-  void keyPressed()
-  {
-    
-    if(keyPressed == true)
-    {
-      if ( (keyCode == RIGHT) )
-      {
-        if( x < width)
-        {
-          x -= speed;
-        }
-      }
-      
-      if ( (keyCode == LEFT) )
-      {
-        if( x > 0)
-        {
-          x += speed;
-        }
-      } 
-    }
-  }//end keypressed
+
 }

@@ -4,6 +4,7 @@ class End_screen
   void display()
   {
      background(0);
-     text("you lose, loser", 10, 30); 
+     textSize(30);
+     text("Game over", width / 2, height / 2); 
   } 
 }

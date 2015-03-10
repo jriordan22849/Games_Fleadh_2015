@@ -41,6 +41,7 @@ boolean sketchFullScreen()
 // counter
 int counter = frameCount % 300;
 int score = 0;
+int speed = 5;
 
 void setup()
 {
@@ -108,19 +109,19 @@ void draw()
      truck.update();
      truck.display();
 
-     for(int i = 0; i < banana_pu.size(); i ++)
-     {
-       if( counter == 0)
-       {
-         banana_pu.get(i).display();
-       }
-     }
-          
-     
-     if(banana_pu.isEmpty() )
-     {
-       create_banana();
-     }
+//     for(int i = 0; i < banana_pu.size(); i ++)
+//     {
+//       if( counter == 0)
+//       {
+//         banana_pu.get(i).display();
+//       }
+//     }
+//          
+//     
+//     if(banana_pu.isEmpty() )
+//     {
+//       create_banana();
+//     }
      
      for(int i = 0; i < fuel_pu.size(); i ++)
      {

@@ -4,7 +4,6 @@ class Stones
   float RrandomY;
   float Rw;
   float Rh;
-  float speed = 5;
   float Rcolour1 = 255;
   float Rcolour2 = random(140,220);
   float Rcolour3 = random(0,10);
@@ -46,7 +45,7 @@ class Stones
   
   void update()
   {
-    keyPressed(); 
+    RrandomX -= speed;
   }
   
   void display()
@@ -56,29 +55,6 @@ class Stones
       ellipse( RrandomX + speed , RrandomY, Rw, Rh);
   }
   
-  void keyPressed()
-  {
-    
-    if(keyPressed == true)
-    {
-      if ( (keyCode == RIGHT) )
-      {
-        if( RrandomX < width)
-        {
-          RrandomX -= speed;
-        }
-      }
-      
-      if ( (keyCode == LEFT) )
-      {
-        if( RrandomX > 0)
-        {
-          RrandomX += speed;
-        }
-      
 
-      } 
-    }
-  }//end keypressed
 }
  
