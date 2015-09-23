@@ -1,5 +1,6 @@
 class RoadSide
 {
+  
   PVector pos  ;
   float   prog ;
 
@@ -25,11 +26,10 @@ class RoadSide
     if(pos.x-prog<=-width)
     {
       pos.x = 0;
-      pos.y = 500;
+      pos.y = 475;
       prog = 0;
     }
-
-    
+      
   }
   
   void display()
@@ -37,11 +37,10 @@ class RoadSide
     
     fill(0);
     stroke(255);
-   
+
+    // image(fg,pos.x-prog,pos.y,width*2,height/7);
     
-    rect(pos.x-prog,pos.y,2*width,80);
-    
-    prog = prog + 1 ;
+    prog = prog + 3 ;
   }
   
   void setupSpawn()

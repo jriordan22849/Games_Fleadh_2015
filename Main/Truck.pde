@@ -1,55 +1,73 @@
-
 Truck truck = new Truck();
 class Truck
 {
   PVector pos;
   float truckH;
   float truckW;
-  float speed;
+  float tSize; //width of trampoline/truck roof
+  
+  int fuel_tank = 1;
+ 
+  
+  boolean left_truck = false;
+  boolean right_truck = true;
+
 
   
   Truck()
   {
-    pos = new PVector(500, 500);
-    truckH = 50;
+    pos = new PVector(100, 580);
+    truckH = 100;
     truckW = 150;
-    speed = 10;
+    tSize = 75;
     
   }  
 
   void update()
   {
-    keyPressed();
-    
+    keyPressed(); 
   }
 
   void display()
-  {    
-    
-    image(karl, pos.x, pos.y, 100, 75);
-    //fill(0);
-    //rect(pos.x, pos.y, truckW, truckH);
-    
-  }  
+  { 
+    if(right_truck == true)
+    {
+      noFill();
+      fill(#48B741);
+      rect(pos.x     , pos.y -40    ,tSize ,40,5);
+      fill(#48B741);
+      rect(pos.x     , pos.y        ,tSize ,40,5);
+      fill(0);
+      rect(pos.x+75  , pos.y -40    ,35 ,40,5);
+      fill(#48B741);
+      rect(pos.x+75  , pos.y        ,35 ,40,5);
+      fill(#48B741);
+      rect(pos.x+110 , pos.y        ,40 ,40,5);
+      fill(0);
+      ellipse(pos.x+25 ,pos.y+40, 30,30);
+      ellipse(pos.x+120,pos.y+40, 30,30);
+    }
+  }
   
   void keyPressed()
   {
-    
-    if(keyPressed == true)
+    if(keyCode == LEFT)
     {
-      if ( (keyCode == LEFT) )
-      {
-        pos.x -= speed;
-      }
-      
-      if ( (keyCode == RIGHT) )
-      {
-        pos.x += speed;
-      } 
+      speed = 3;
+    }  
+    if(keyCode == RIGHT)
+    {
+      speed = 8;
+    }  
+    else 
+    {
+      speed = 5;
     }
-  }//end keypressed
+    println(speed);
+  }
+    
 
+ 
   
   
 }//end class
-
